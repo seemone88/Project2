@@ -19,3 +19,4 @@ we use this application to cordinate plans/events(concerts and what not) we coul
 if slack is ever down or not running we have another way to communicate with one another.<br>
 
 ![image](IMG_0400.JPG)
+![image2](IMG_0406.JPG)
