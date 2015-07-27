@@ -11,6 +11,8 @@ What this application will do
 <li>Post information, such as notes from class</li>
 <li>Delete Posts</li>
 <li>Log out</li>
+</ul>
+
 
 
 User Stories
