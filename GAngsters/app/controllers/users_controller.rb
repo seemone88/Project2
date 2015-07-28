@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authorize, only: :index
   def index
     @users = User.all
   end
@@ -16,13 +17,7 @@ class UsersController < ApplicationController
   end
 end
 
-  def show
-    @user = User.where(id: params[:id]).first
-  end
-
-
   private
-
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :name, :birthday)
   end
