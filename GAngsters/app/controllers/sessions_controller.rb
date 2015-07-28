@@ -5,16 +5,16 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
-        session[:user_id] = user.id
-        redirect_to root_path, notice: "Welcome OG triple OG"
+      session[:user_id] = user.id
+      redirect_to root_path, notice: "Welcome OG Triple OG"
     else
-        flash.now.alert = "WRONG SUCKA"
-        render 'new'
+      flash.now.alert = "WRONG SUCKA"
+      render 'new'
     end
   end
 
   def destroy
-    session[:user_id] = nil
-    redirect_to root_url, notice: "logged out"
+   session[:user_id] = nil
+   redirect_to root_url, notice: "Dueces homeboy"
   end
 end

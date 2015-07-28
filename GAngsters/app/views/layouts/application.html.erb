@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GAngsters</title>
+  <title>PasswordExample</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% flash.each do |name, message| %>
-   <div class="flash-message flash-message-<%= name %>">
+<% flash.each do |name, message| %>
+     <div class="flash-message flash-message-<%= name %>">
     <%= message %>
    </div>
-  <% end %>
-  <% if current_user %>
-    <p>Hello, <%= current_user.email %></p>
-    <% link_to 'Logout', session_path(session), method: :delete%>
-  <% else%>
-    <%= link_to "please login", new_session_path, class: "btn btn-default" %>
-  <%end%>
-  <%= current_user %> 
+<% end %>
+<% if current_user %>
+  <p>Hello, <%= current_user.name %></p>
+  <%= link_to 'Logout', session_path(session), method: :delete%>
+<%else%>
+  <%= link_to "Please Login", new_session_path, class: "btn btn-default" %>
+<%end%>
 <%= yield %>
-
+</form>
 </body>
 </html>
