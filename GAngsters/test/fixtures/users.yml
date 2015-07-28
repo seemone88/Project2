@@ -4,8 +4,12 @@ one:
   name: MyString
   email: MyString
   password_digest: MyString
+  picture: MyString
+  birthday: MyString
 
 two:
   name: MyString
   email: MyString
   password_digest: MyString
+  picture: MyString
+  birthday: MyString
