@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to root_path, notice: "Welcome OG Triple OG"
+      redirect_to new_post_path, notice: "Welcome OG Triple OG"
     else
       flash.now.alert = "WRONG SUCKA"
       render 'new'
