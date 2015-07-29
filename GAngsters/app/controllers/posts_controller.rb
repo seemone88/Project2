@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
+  before_action :authorize, only: :destroy
   def index
-    @posts = Post.all
+    @posts = current_user.posts
   end
 
   def new
@@ -9,8 +10,9 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
     if @post.save
-      redirect_to post_path(@post)
+      redirect_to posts_path
     else
       render "new"
     end
@@ -18,11 +20,16 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-
+    @posts = Post.all
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    render 'new'
+  end
   private
   def post_params
-    params.require(:post).permit(:body)
+    params.require(:post).permit(:body, :user_id)
   end
 end

@@ -1,0 +1,11 @@
+<%= @user.name %>
+<% @posts.each do |p| %><br>
+<%= p.body %>
+
+
+
+
+<%if @post.id = current_user.id do |p|%>
+  <%= link_to 'Delete', post_path , method: :delete%>
+<%end%>
+<%end%>
