@@ -6,11 +6,14 @@
 <br>
 <% @post.comments.each do |comment| %>
     <%= comment.body %>
+    <%= comment.user.name.capitalize %>
     <br>
     <br>
 <% end %>
 <br>
 <br>
+
+
 
 <div>
   <%= form_for [@post, Comment.new] do |f| %>

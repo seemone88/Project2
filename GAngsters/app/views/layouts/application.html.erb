@@ -17,6 +17,7 @@
   <%= link_to 'Logout', session_path(session), method: :delete%>
   <%= link_to 'My Posts', user_path(current_user)%>
   <%= link_to 'Other Users', users_path%>
+  <%= link_to 'New Post', new_post_path%>
 <%else%>
   <%= link_to "Please Login", new_session_path, class: "btn btn-default" %>
 <%end%>
