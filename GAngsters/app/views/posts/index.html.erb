@@ -1,14 +1,12 @@
 <h1>Posts#index</h1>
 <p>Find me in app/views/posts/index.html.erb</p>
+
+<% @posts.each do |post|%>
 <div class="">
-  <% @posts.each do |p| %>
-  <p><%= p.body %></p>
-  <p>
-    <% if p.user %>
-    Created by: <%= p.user.name %>
-    <%else%>
-    Created by: Anonymous
-    <%end%>
-  </p>
-  <% end %>
+  <%= link_to post.body, post_path(post) %>
+  <% if post.user.id == current_user.id %>
+  <%= link_to 'Delete' , post, method: :delete%>
+  <%= link_to 'Edit' , edit_post_path(post)%>
+  <%end%>
+  <%end%>
 </div>

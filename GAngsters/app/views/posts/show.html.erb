@@ -1,17 +1,22 @@
 <h1>Posts#show</h1>
 <p>Find me in app/views/posts/show.html.erb</p>
-<% @posts.each do |f| %>
-<%= f.body %>
-<%end%>
-<div class="">
-  <% @post.comments.each do |c| %>
-  <p><%= c.body %></p>
-  <p>
-    <% if c.user %>
-    Created by: <%= c.user.name %>
-    <%else%>
-    Created by: Anonymous
-    <%end%>
-  </p>
+
+<%= @post.body %>
+<br>
+<br>
+<% @post.comments.each do |comment| %>
+    <%= comment.body %>
+    <br>
+    <br>
+<% end %>
+<br>
+<br>
+
+<div>
+  <%= form_for [@post, Comment.new] do |f| %>
+      <%= f.label :body, "New comment:" %>
+      <%= f.text_area :body %>
+    <br>
+    <%= f.submit "Add your Comment!" %>
   <% end %>
 </div>
