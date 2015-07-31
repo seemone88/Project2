@@ -20,12 +20,13 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @posts = Post.all
+
   end
 
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to posts_path
+    redirect_to :back
   end
 
   def edit
@@ -39,6 +40,6 @@ class PostsController < ApplicationController
   end
   private
   def post_params
-    params.require(:post).permit(:body, :user_id, :post_id)
+    params.require(:post).permit(:body, :user_id, :post_id, :title, :picture)
   end
 end

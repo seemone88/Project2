@@ -1,10 +1,22 @@
-<% @posts.each do |post|%>
-<div class="">
-  <%= link_to post.body, post_path(post) %>
-  <% if post.user.id == current_user.id %>
-  <%= link_to 'Delete' , post, method: :delete%>
-  <%= link_to 'Edit' , edit_post_path(post)%>
-  <%end%>
-</div>
 
-<%end%>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= @user.name.capitalize %>'s post</th>
+      <th>Delete</th>
+      <th>Edit</th>
+    <tr>
+      <tbody>
+        <% @posts.each do |post|%>
+        <tr>
+          <td><%= link_to post.title, post_path(post) %></td>
+          <% if post.user.id == current_user.id %>
+          <td><%= link_to 'Delete' , post, method: :delete%></td>
+          <td><%= link_to 'Edit' , edit_post_path(post)%></td>
+          <%end%>
+          <%end%>
+        </tr>
+      </tbody>
+    </table>

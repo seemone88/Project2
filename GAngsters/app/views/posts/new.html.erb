@@ -1,6 +1,9 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+
+
+
 <%= form_for @post do |f|%>
-<div>Body: <%= f.text_area :body %></div>
-<div> <%= f.submit "Add Post" %></div>
+Title: <%= f.text_area :title, class: "form-control"%>
+Body: <%= f.text_area :body, class: "form-control"%>
+Picture: <%= f.text_area :picture, class: "form-control"%>
+<button type="submit" class="btn btn-primary">Add Post</button>
 <% end %>
